@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi';
 import { FiUser } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi';
+import { FiChevronLeft } from 'react-icons/fi';
 
 const Navbar = () => {
+
+    const [visible, setVisible] = useState(false)
+
   return (
     <div className='flex items-center justify-between py-1 font-medium'>
         <img src={logo} alt="" />
@@ -47,6 +52,24 @@ const Navbar = () => {
                     <FiShoppingCart className="w-5 min-win-5" />
                     <p className='absolute right-[-5px] bottom-[-5px] w-3 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>8</p>
                 </Link>
+                <FiMenu onClick={()=>setVisible(true)} className="w-5 cursor-pointer sm:hidden" />
+        </div>
+
+        {/*Side bar for small screens*/}
+        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible? 'w-full':'w-0'}`}>
+            <div className='flex flex-col text-gray-600'>
+                <div onClick={()=>setVisible(false)} className='flex items-center gap-4 p-3 cursor-pointer'>            
+                    <FiChevronLeft className="h-4" />
+                    <p>Back</p>
+                </div>
+                <div onClick={()=>setVisible(false)} className='flex flex-col'>
+                    <NavLink className='py-2 pl-6 border' to='/'>HOME</NavLink>              
+                    <NavLink className='py-2 pl-6 border' to='/collection'>COLLECTION</NavLink>
+                    <NavLink className='py-2 pl-6 border' to='/about'>ABOUT</NavLink>
+                    <NavLink className='py-2 pl-6 border' to='/contact'>CONTACT</NavLink>
+                </div>
+                
+            </div>
         </div>
     </div>
   )
