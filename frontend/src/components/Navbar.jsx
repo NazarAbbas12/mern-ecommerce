@@ -13,7 +13,9 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between py-1 font-medium'>
-        <img src={logo} alt="" />
+        <Link to='/'>            
+            <img src={logo} alt="" />
+        </Link>
 
         <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
 
@@ -54,6 +56,8 @@ const Navbar = () => {
                 </Link>
                 <FiMenu onClick={()=>setVisible(true)} className="w-5 cursor-pointer sm:hidden" />
         </div>
+
+
 
         {/*Side bar for small screens*/}
         <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible? 'w-full':'w-0'}`}>
