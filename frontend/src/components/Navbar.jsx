@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from '../assets/logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi';
@@ -6,10 +6,13 @@ import { FiUser } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { FiMenu } from 'react-icons/fi';
 import { FiChevronLeft } from 'react-icons/fi';
+import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
 
     const [visible, setVisible] = useState(false)
+
+    const {setShowSearch} = useContext(ShopContext);
 
   return (
     <div className='flex items-center justify-between py-1 font-medium'>
@@ -38,7 +41,7 @@ const Navbar = () => {
         </ul>
 
         <div className='flex items-center gap-6'>
-                <FiSearch className='w-5 cursor-pointer'/>
+                <FiSearch onClick={()=>setShowSearch(true)} className='w-5 cursor-pointer'/>
 
                 <div className='group relative'>
                     <FiUser className='w-5 cursor-pointer'/>
