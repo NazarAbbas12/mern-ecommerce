@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const [visible, setVisible] = useState(false)
 
-    const {setShowSearch} = useContext(ShopContext);
+    const {setShowSearch, getCartCount} = useContext(ShopContext);
 
   return (
     <div className='flex items-center justify-between py-1 font-medium'>
@@ -55,7 +55,7 @@ const Navbar = () => {
                 </div>
                 <Link to='/cart' className='relative'>
                     <FiShoppingCart className="w-5 min-win-5" />
-                    <p className='absolute -right-1.25 -bottom-1.25 w-3 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>8</p>
+                    <p className='absolute -right-1.25 -bottom-1.25 w-3 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
                 </Link>
                 <FiMenu onClick={()=>setVisible(true)} className="w-5 cursor-pointer sm:hidden" />
         </div>
