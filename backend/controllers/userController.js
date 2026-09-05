@@ -78,7 +78,7 @@ const registerUser = async (req,res)=>{
 
 }
 
-// route for admin login
+// route for (admin login)
 const adminLogin = async (req,res)=>{
     try {
         const {email,password} = req.body
