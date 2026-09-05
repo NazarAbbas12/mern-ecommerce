@@ -14,7 +14,7 @@ const Navbar = () => {
 
     const {setShowSearch, getCartCount, navigate, token, setToken, setCartItems} = useContext(ShopContext);
 
-    const Logout = () => {
+    const logout = () => {
         navigate('/login')
         localStorage.removeItem('token')
         setToken('')
