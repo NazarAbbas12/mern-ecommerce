@@ -39,16 +39,16 @@ const Add = ({token}) => {
         image3 && formData.append("image3",image3)
         image4 && formData.append("image4",image4)
 
-        const response = await axios.post(backendUrl+"/api/product/add",formData,{headers:token})
+        const response = await axios.post(backendUrl+"/api/product/add",formData,{headers:{token}})
         
         if(response.data.success){
           toast.success(response.data.message)
           setName('')
           setDescription('')
-          setImage1(False)
-          setImage2(False)
-          setImage3(False)
-          setImage4(False)
+          setImage1(false)
+          setImage2(false)
+          setImage3(false)
+          setImage4(false)
           setPrice('')
         }
         else{
